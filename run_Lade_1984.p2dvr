@@ -1,0 +1,56 @@
+model new
+program thread auto
+
+model restore 'unbounded_pre_growth_Lade_1984'
+
+; The log file is useful to have a record of the simulation.
+; It also help to debug when PFC crashes (we can know what
+; was the last step before the crash).
+program log on
+program log-file 'simulation_log.txt'
+[io.out('BEGINNING')]
+
+fish automatic-create off
+model random 10001
+
+program call 'parameter_def_Lade_1984.p2dat' suppress
+program call 'fish_functions_Lade_1984.p2fis' suppress
+;program call 'eiffel_tower.p2fis' suppress
+
+@allParameters
+;@exportResultSettings
+;@makeDomain
+;@makeWalls
+;@defineDefaultContactMaterial
+;@createPreGrowthLayers
+@setHomogeneousMechanicalPropertiesBeforeDeformation
+;@setHeterogeneousMechanicalPropertiesBeforeDeformation
+;@setMechanicalPropertiesBeforeDeformation
+@makeFault
+;@makeFaultSeed
+
+;@makeEiffelTower
+;program return
+@runDeformation
+
+[io.out('END')]
+project save
+program return
+
+
+;fish define createGeometryEdgesFromContacts
+;    loop foreach local cur_contact contact.list("ball-ball")
+;        local first_ball = contact.end1(cur_contact)
+;        local second_ball = contact.end2(cur_contact)
+;        local first_pos = ball.pos(first_ball)
+;        local second_pos = ball.pos(second_ball)
+;        local contact_pos = contact.pos(cur_contact)
+;        local contact_id = contact.id(cur_contact)
+;        command
+;            ;geometry edge create by-position @first_pos @second_pos group @contact_id
+;            ;geometry rotate angle 90 origin @contact_pos range group @contact_id
+;            data scalar create @contact_pos value @contact_id extra 1 @first_pos extra 2 @second_pos
+;        end_command
+;    end_loop
+;end
+;@createGeometryEdgesFromContacts
