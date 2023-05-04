@@ -1,6 +1,8 @@
 # DEM_PFC2D_Cole-Lade-1984_Sandbox
 This is the general Particle Flow Code 2D (PFC2D v7) to reconstruct the reverse fault sandbox model in Cole &amp; Lade (1984). These models are part of the "Geomechanical modeling of ground surface deformation associated with thrust and reverse fault earthquakes: A discrete element approach" project. 
 
+Citation: Kristen Chiama, Benjamin Chauvin, Andreas Plesch, Robb Moss, John H. Shaw; Geomechanical Modeling of Ground Surface Deformation Associated with Thrust and Reverse‐Fault Earthquakes: A Distinct Element Approach. Bulletin of the Seismological Society of America 2023; doi: https://doi.org/10.1785/0120220264
+
 You will need to download PFC2D v7.0 or later to open these files and obtain an Itasca license for the software to run models with > 1000 particles. 
 
 # README
